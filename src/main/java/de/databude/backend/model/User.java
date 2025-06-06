@@ -32,4 +32,7 @@ public class User {
 
     @Column(name = "email", nullable = false, unique = true)
     private String email;
+
+    @Column(name = "profile_url")
+    private String profileUrl;
 }

@@ -1,6 +1,5 @@
 package de.databude.backend;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
@@ -10,10 +9,9 @@ import de.databude.backend.service.UserService;
 
 @Component
 public class ManualTestBean {
-    
-    UserService userService;
 
-    @Autowired
+    private final UserService userService;
+
     public ManualTestBean(UserService userService) {
         this.userService = userService;
         userService.testUser();
