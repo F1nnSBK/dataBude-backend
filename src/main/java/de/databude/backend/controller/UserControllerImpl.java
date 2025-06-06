@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
 @RequestMapping("/api/users")
-public class UserControllerImpl {
+public class UserControllerImpl implements UserController {
     
     UserService userService;
 
@@ -22,11 +22,13 @@ public class UserControllerImpl {
         this.userService = userService;
     } 
 
+    @Override
     @GetMapping("/")
     public List<UserDTO> getAllUsers() {
         return this.userService.getAllUsers();
     }
 
+    @Override
     @GetMapping("/{userId}")
     public UserDTO getMethodName(@PathVariable Long userId) {
         return this.userService.getUserById(userId);
